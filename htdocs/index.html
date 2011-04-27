@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>TCP Game Server</title>
+        <link rel="stylesheet" href="css/server.css" />
+        <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>-->
+        <script src="js/jquery-1.4.2.min.js"></script>
+        <script src="js/jquery.tablesorter.min.js"></script>
+        <!--[if lt IE 9]>
+        <script>
+          var e = ("abbr,article,aside,audio,canvas,datalist,details," +
+            "figure,footer,header,hgroup,mark,menu,meter,nav,output," +
+            "progress,section,time,video").split(',');
+          for (var i = 0; i < e.length; i++) {
+            document.createElement(e[i]);
+          }
+        </script>
+        <![endif]-->
+        <script src="js/table.js"></script>
+        <script>
+        $.get('list?type=ranking', function(response) {
+            Table.json2table({json_data: JSON.parse(response)}).appendTo('#active_bots');
+        });
+        </script>
+    </head>
+    <body>
+        <h1>TCP Game Server</h1>
+        <section id="active_bots"></section>
+    </body>
+</html>
